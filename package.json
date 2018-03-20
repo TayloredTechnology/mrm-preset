@@ -1,0 +1,66 @@
+{
+	"name": "mrm-preset",
+	"description":
+		"CodeMods approach to config management for TayloredTechnology projects",
+	"homepage": "https://github.com/TayloredTechnology/mrm-preset#readme",
+	"version": "0.0.0",
+	"main": "config.json",
+	"author": {
+		"name": "Taylored Technology",
+		"url": "https://tayloredtechnology.net"
+	},
+	"repository": {
+		"email": "TayloredTechnology@protonmail.ch",
+		"type": "git",
+		"url": "git+https://github.com/TayloredTechnology/mrm-preset.git"
+	},
+	"bugs": {
+		"url": "https://github.com/TayloredTechnology/mrm-preset/issues"
+	},
+	"keywords": ["mrm", "mrm-preset", "mrm-task"],
+	"dependencies": {
+		"editorconfig-to-prettier": "0.0.6",
+		"finepack": "^2.7.0",
+		"mrm-core": "^3.1.0",
+		"mrm-task-editorconfig": "^1.0.3",
+		"mrm-task-gitignore": "^1.1.2",
+		"mrm-task-prettier": "^1.2.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^6.1.3",
+		"@commitlint/config-conventional": "^6.1.3",
+		"@commitlint/lint": "^6.1.3",
+		"@commitlint/prompt-cli": "^6.1.3",
+		"husky": "^0.14.3",
+		"prettier": "^1.11.1",
+		"xo": "^0.20.3"
+	},
+	"engines": {
+		"node": ">=6"
+	},
+	"files": ["*/index.js", "config.json"],
+	"scripts": {
+		"commit": "commit",
+		"format:prettier": "prettier --write '**/*.{css,md}'",
+		"format:xo": "xo ./**/*.js",
+		"precommit": "redrun -p format:*"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"commitlint": {
+		"extends": ["@commitlint/config-conventional"]
+	},
+	"xo": {
+		"globals": ["$", "_", "co"],
+		"ignores": ["**/*.spec.js", "**/*.test.js", "app/backends/**/*.js"],
+		"prettier": true,
+		"rules": {
+			"generator-star-spacing": "off",
+			"import/no-extraneous-dependencies": "off",
+			"import/no-unassigned-import": "off",
+			"import/no-unresolved": "off",
+			"import/order": "off",
+			"operator-linebreak": "off"
+		},
+		"semicolon": false
+	}
+}

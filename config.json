@@ -1,0 +1,25 @@
+{
+	"aliases": {
+		"init": [
+			"package",
+			"editorconfig",
+			"gitignore",
+			"git",
+			"prettier",
+			"xo",
+			"test",
+			"docco",
+			"cleanup",
+			"finepack"
+		]
+	},
+	"indent": "tab",
+	"licenseFile": "LICENSE",
+	"readmeFile": "README.md",
+	"globals": ["_"],
+	"license": "SEE LICENSE IN LICENSE",
+	"name": "Taylored Technology",
+	"url": "https://tayloredtechnology.net",
+	"minNode": "6",
+	"xoIgnores": ["app/backends/**/*.js"]
+}
