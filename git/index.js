@@ -5,8 +5,7 @@ module.exports = () => {
 		'@commitlint/cli',
 		'@commitlint/config-conventional',
 		'@commitlint/lint',
-		'@commitlint/prompt-cli',
-		'husky'
+		'@commitlint/prompt-cli'
 	]
 
 	// Package.json
@@ -18,6 +17,7 @@ module.exports = () => {
 
 	// Install
 	install(devPackages, {dev: true})
+	install('husky', 'next', {dev: true})
 }
 
 module.exports.description = 'Enable Commit Guards'
