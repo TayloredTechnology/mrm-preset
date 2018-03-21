@@ -35,6 +35,7 @@
 		"@commitlint/lint": "^6.1.3",
 		"@commitlint/prompt-cli": "^6.1.3",
 		"husky": "^0.15.0-rc.9",
+		"lint-staged": "^7.0.0",
 		"prettier": "^1.11.1",
 		"xo": "^0.20.3"
 	},
@@ -46,10 +47,11 @@
 		"config.json"
 	],
 	"scripts": {
-		"commit": "commit",
 		"format:prettier": "prettier --write '**/*.{css,md}'",
 		"format:xo": "xo ./**/*.js",
-		"precommit": "redrun -p format:*"
+		"commit": "commit",
+		"commitmsg": "commitlint -e $GIT_PARAMS",
+		"format": "redrun -p format:*"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"commitlint": {
@@ -78,5 +80,20 @@
 			"operator-linebreak": "off"
 		},
 		"semicolon": false
+	},
+	"lint-staged": {
+		"*.{js}": [
+			"xo",
+			"git add"
+		],
+		"*.{css,md}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
 	}
 }
