@@ -10,6 +10,7 @@
 			"xo",
 			"logs",
 			"docco",
+			"renovate",
 			"cleanup",
 			"finepack"
 		]
