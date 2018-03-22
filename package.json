@@ -23,20 +23,37 @@
 	],
 	"dependencies": {
 		"editorconfig-to-prettier": "0.0.6",
+		"fastest-validator": "^0.6.5",
 		"finepack": "^2.7.0",
+		"is-installed": "^2.0.1",
 		"mrm-core": "^3.1.0",
 		"mrm-task-editorconfig": "^1.0.3",
 		"mrm-task-gitignore": "^1.1.2",
-		"mrm-task-prettier": "^1.2.2"
+		"mrm-task-prettier": "^1.2.2",
+		"per-env": "^1.0.2",
+		"redrun": "^6.0.1",
+		"tap-lochnest": "^1.1.2",
+		"tape": "^4.9.0",
+		"tape-around": "^2.2.0",
+		"tape-promise": "^3.0.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^6.1.3",
 		"@commitlint/config-conventional": "^6.1.3",
 		"@commitlint/lint": "^6.1.3",
 		"@commitlint/prompt-cli": "^6.1.3",
+		"chuhai": "^1.2.0",
+		"clear-require": "^2.0.0",
+		"codecov": "^3.0.0",
+		"faker": "^4.1.0",
 		"husky": "^0.15.0-rc.9",
 		"lint-staged": "^7.0.0",
+		"nyc": "^11.6.0",
 		"prettier": "^1.11.1",
+		"tap-dot": "^1.0.5",
+		"tap-summary": "^4.0.0",
+		"tape-index": "^1.1.1",
+		"testdouble": "^3.5.2",
 		"xo": "^0.20.3"
 	},
 	"engines": {
@@ -47,11 +64,22 @@
 		"config.json"
 	],
 	"scripts": {
+		"codecov:generate": "nyc report --reporter=text-lcov > coverage.lcov",
+		"codecov:upload": "codecov",
+		"commit": "commit",
+		"format": "redrun -p format:*",
 		"format:prettier": "prettier --write '**/*.{css,md}'",
 		"format:xo": "xo ./**/*.js",
-		"commit": "commit",
-		"commitmsg": "commitlint -e $GIT_PARAMS",
-		"format": "redrun -p format:*"
+		"test": "per-env",
+		"posttest": "redrun -p codecov:report codecov:check",
+		"test:api": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(api).js' | tap-dot",
+		"test:development": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity).js' | tap-dot",
+		"test:sanity": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(sanity).js' | tap-dot",
+		"test:ci": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity|api).js' | tap-dot",
+		"posttest:ci": "redrun -p codecov:*",
+		"codecov:check": "nyc check-coverage --branches=50 --functions=50 --lines=90 --statements=50",
+		"codecov:report": "nyc report --reporter=text",
+		"prestart:production": "tape '{,!(node_modules)/**/}*.?(sanity|api).js' | tap-dot"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"commitlint": {
@@ -82,6 +110,9 @@
 		"semicolon": false
 	},
 	"lint-staged": {
+		"*.{spec,sanity,api}.js": [
+			"nyc --per-file --check-coverage --branches=50 --functions=50 --lines=90 --statements=50 tape"
+		],
 		"*.{js}": [
 			"xo",
 			"git add"
@@ -93,7 +124,8 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged"
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -e $GIT_PARAMS"
 		}
 	}
 }

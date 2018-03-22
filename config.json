@@ -4,10 +4,11 @@
 			"package",
 			"editorconfig",
 			"gitignore",
+			"test",
 			"git",
 			"prettier",
 			"xo",
-			"test",
+			"logs",
 			"docco",
 			"cleanup",
 			"finepack"
@@ -21,5 +22,12 @@
 	"name": "Taylored Technology",
 	"url": "https://tayloredtechnology.net",
 	"minNode": "6",
-	"xoIgnores": ["app/backends/**/*.js"]
+	"xoIgnores": ["app/backends/**/*.js"],
+	"coverage": {
+		"branches": 50,
+		"functions": 50,
+		"lines": 90,
+		"statements": 50
+	},
+	"codecovToken": ""
 }
