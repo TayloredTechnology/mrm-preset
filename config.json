@@ -1,0 +1,33 @@
+{
+	"aliases": {
+		"init": [
+			"package",
+			"editorconfig",
+			"gitignore",
+			"test",
+			"git",
+			"prettier",
+			"xo",
+			"logs",
+			"docco",
+			"cleanup",
+			"finepack"
+		]
+	},
+	"indent": "tab",
+	"licenseFile": "LICENSE",
+	"readmeFile": "README.md",
+	"globals": ["_"],
+	"license": "SEE LICENSE IN LICENSE",
+	"name": "Taylored Technology",
+	"url": "https://tayloredtechnology.net",
+	"minNode": "6",
+	"xoIgnores": ["app/backends/**/*.js"],
+	"coverage": {
+		"branches": 50,
+		"functions": 50,
+		"lines": 90,
+		"statements": 50
+	},
+	"codecovToken": ""
+}
