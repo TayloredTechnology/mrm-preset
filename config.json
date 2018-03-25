@@ -9,11 +9,11 @@
 			"prettier",
 			"xo",
 			"logs",
-			"docco",
 			"renovate",
 			"cleanup",
 			"finepack"
-		]
+		],
+		"meta": ["meta-docco", "docco"]
 	},
 	"indent": "tab",
 	"licenseFile": "LICENSE",
@@ -30,5 +30,6 @@
 		"lines": 90,
 		"statements": 50
 	},
-	"codecovToken": ""
+	"codecovToken": "",
+	"source": "app/"
 }
