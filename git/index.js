@@ -35,21 +35,20 @@ module.exports = config => {
 			}
 		})
 
-	if (pkg.getScript('test') === 'undefined') {
-		pkg.set('lint-staged', {
-			'*.{js}': ['xo', 'git add'],
-			'*.{css,md}': ['prettier --write', 'git add']
-		})
-	} else {
-		pkg.set('lint-staged', {
-			'*.{spec,sanity,api}.js': [
-				`nyc --per-file --check-coverage ${coverageOptions.join(' ')} tape`
-			],
-			'*.{js}': ['xo', 'git add'],
-			'*.{css,md}': ['prettier --write', 'git add']
-		})
+	const lintStaged = {
+		'*.{js}': ['xo', 'git add'],
+		'*.{css,md}': ['prettier --write', 'git add']
 	}
-	pkg.save()
+
+	if (pkg.getScript('test') !== 'undefined')
+		lintStaged['*.{spec,sanity,api}.js'] = [
+			`nyc --per-file --check-coverage ${coverageOptions.join(' ')} tape`
+		]
+
+	if (pkg.getScript('docco') !== 'undefined')
+		lintStaged['*.{js}'] = lintStaged['*.{js}'].shift('commentizer')
+
+	pkg.set('lint-staged', lintStaged).save()
 
 	// Install
 	install(devPackages, {dev: true})
