@@ -5,12 +5,12 @@
 			"editorconfig",
 			"gitignore",
 			"test",
+			"doco-github",
 			"git",
 			"prettier",
 			"xo",
 			"logs",
 			"renovate",
-			"cleanup",
 			"finepack"
 		],
 		"meta": ["meta-docco", "docco"]

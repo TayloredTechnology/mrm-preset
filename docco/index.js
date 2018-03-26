@@ -20,7 +20,6 @@ module.exports = config => {
 				Sphinx: '>=1.7.2'
 			}
 		})
-
 		.save()
 
 	// Templates
