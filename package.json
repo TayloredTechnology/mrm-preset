@@ -3,7 +3,7 @@
 	"description":
 		"CodeMods approach to config management for TayloredTechnology projects",
 	"homepage": "https://github.com/TayloredTechnology/mrm-preset#readme",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"main": "config.json",
 	"author": {
 		"name": "Taylored Technology",
@@ -50,7 +50,6 @@
 		"husky": "^0.15.0-rc.9",
 		"jsdoc": "^3.5.5",
 		"lint-staged": "^7.0.0",
-		"nopy": "^0.2.4",
 		"nyc": "^11.6.0",
 		"prettier": "^1.11.1",
 		"tap-dot": "^1.0.5",
@@ -85,12 +84,7 @@
 			"nyc check-coverage --branches=50 --functions=50 --lines=90 --statements=50",
 		"codecov:report": "nyc report --reporter=text",
 		"prestart:production":
-			"tape '{,!(node_modules)/**/}*.?(sanity|api).js' | tap-dot",
-		"docco": "commentizer ./app/**/*.js !./app/**/*.*.js",
-		"nopenv": "nopenv",
-		"nopy": "nopy",
-		"install": "npip install",
-		"npip": "npip"
+			"tape '{,!(node_modules)/**/}*.?(sanity|api).js' | tap-dot"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"commitlint": {
@@ -124,12 +118,6 @@
 		"hooks": {
 			"pre-commit": "lint-staged",
 			"commit-msg": "commitlint -e $GIT_PARAMS"
-		}
-	},
-	"python": {
-		"dependencies": {
-			"sphinx-js": ">=2.4",
-			"Sphinx": ">=1.7.2"
 		}
 	}
 }
