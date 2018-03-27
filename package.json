@@ -1,129 +1,147 @@
 {
-	"name": "mrm-preset-tayloredtechnology",
-	"description":
-		"CodeMods approach to config management for TayloredTechnology projects",
-	"homepage": "https://github.com/TayloredTechnology/mrm-preset#readme",
-	"version": "0.2.0",
-	"main": "config.json",
-	"author": {
-		"name": "Taylored Technology",
-		"url": "https://tayloredtechnology.net"
-	},
-	"repository": {
-		"email": "TayloredTechnology@protonmail.ch",
-		"type": "git",
-		"url": "git+https://github.com/TayloredTechnology/mrm-preset.git"
-	},
-	"bugs": {
-		"url": "https://github.com/TayloredTechnology/mrm-preset/issues"
-	},
-	"keywords": ["mrm", "mrm-preset", "mrm-task"],
-	"dependencies": {
-		"editorconfig-to-prettier": "0.0.6",
-		"execa": "^0.10.0",
-		"fastest-validator": "^0.6.5",
-		"finepack": "^2.7.0",
-		"is-installed": "^2.0.1",
-		"mkdirp": "^0.5.1",
-		"mrm-core": "^3.1.0",
-		"mrm-task-editorconfig": "^1.0.3",
-		"mrm-task-prettier": "^1.2.2",
-		"ora": "^2.0.0",
-		"per-env": "^1.0.2",
-		"redrun": "^6.0.1",
-		"tap-lochnest": "^1.1.2",
-		"tape": "^4.9.0",
-		"tape-around": "^2.2.0",
-		"tape-promise": "^3.0.0",
-		"upath": "^1.0.4"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^6.1.3",
-		"@commitlint/config-conventional": "^6.1.3",
-		"@commitlint/lint": "^6.1.3",
-		"@commitlint/prompt-cli": "^6.1.3",
-		"chuhai": "^1.2.0",
-		"clear-require": "^2.0.0",
-		"codecov": "^3.0.0",
-		"commentizer": "^1.0.9",
-		"faker": "^4.1.0",
-		"husky": "^0.15.0-rc.9",
-		"jsdoc": "^3.5.5",
-		"lint-staged": "^7.0.0",
-		"nyc": "^11.6.0",
-		"prettier": "^1.11.1",
-		"tap-dot": "^1.0.5",
-		"tap-summary": "^4.0.0",
-		"tape-index": "^1.1.1",
-		"testdouble": "^3.5.2",
-		"xo": "^0.20.3"
-	},
-	"engines": {
-		"node": ">=6"
-	},
-	"files": ["*/index.js", "config.json"],
-	"scripts": {
-		"codecov:generate": "nyc report --reporter=text-lcov > coverage.lcov",
-		"codecov:upload": "codecov",
-		"commit": "commit",
-		"format": "redrun -p format:*",
-		"format:prettier": "prettier --write '**/*.{css,md}'",
-		"format:xo": "xo ./**/*.js",
-		"test": "per-env",
-		"posttest": "redrun -p codecov:report codecov:check",
-		"test:api":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(api).js' | tap-dot",
-		"test:development":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity).js' | tap-dot",
-		"test:sanity":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(sanity).js' | tap-dot",
-		"test:ci":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity|api).js' | tap-dot",
-		"posttest:ci": "redrun -p codecov:*",
-		"codecov:check":
-			"nyc check-coverage --branches=50 --functions=50 --lines=90 --statements=50",
-		"codecov:report": "nyc report --reporter=text",
-		"prestart:production":
-			"tape '{,!(node_modules)/**/}*.?(sanity|api).js' | tap-dot"
-	},
-	"license": "SEE LICENSE IN LICENSE",
-	"commitlint": {
-		"extends": ["@commitlint/config-conventional"]
-	},
-	"xo": {
-		"globals": ["$", "_", "co"],
-		"ignores": ["**/*.spec.js", "**/*.test.js", "app/backends/**/*.js"],
-		"prettier": true,
-		"rules": {
-			"generator-star-spacing": "off",
-			"import/no-extraneous-dependencies": "off",
-			"import/no-unassigned-import": "off",
-			"import/no-unresolved": "off",
-			"import/order": "off",
-			"operator-linebreak": "off"
-		},
-		"semicolon": false
-	},
-	"lint-staged": {
-		"linters": {
-			"*.{spec,sanity,api}.js": [
-				"nyc --per-file --check-coverage --branches=50 --functions=50 --lines=90 --statements=50 tape"
-			],
-			"*.{js}": ["xo", "git add"],
-			"*.{css,md}": ["prettier --write", "git add"]
-		},
-		"ignore": ["CHANGELOG.md"]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged",
-			"commit-msg": "commitlint -e $GIT_PARAMS"
-		}
-	},
-	"python": {
-		"dependencies": {
-			"sphinx-js": ">=2.4",
-			"Sphinx": ">=1.7.2"
-		}
-	}
+  "name": "mrm-preset-tayloredtechnology",
+  "description": "CodeMods approach to config management for TayloredTechnology projects",
+  "homepage": "https://github.com/TayloredTechnology/mrm-preset#readme",
+  "version": "0.2.1",
+  "main": "config.json",
+  "author": {
+    "name": "Taylored Technology",
+    "url": "https://tayloredtechnology.net"
+  },
+  "repository": {
+    "email": "TayloredTechnology@protonmail.ch",
+    "type": "git",
+    "url": "git+https://github.com/TayloredTechnology/mrm-preset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TayloredTechnology/mrm-preset/issues"
+  },
+  "keywords": [
+    "mrm",
+    "mrm-preset",
+    "mrm-task"
+  ],
+  "dependencies": {
+    "editorconfig-to-prettier": "0.0.6",
+    "execa": "^0.10.0",
+    "fastest-validator": "^0.6.5",
+    "finepack": "^2.7.0",
+    "is-installed": "^2.0.1",
+    "mkdirp": "^0.5.1",
+    "mrm-core": "^3.1.0",
+    "mrm-task-editorconfig": "^1.0.3",
+    "mrm-task-prettier": "^1.2.2",
+    "ora": "^2.0.0",
+    "per-env": "^1.0.2",
+    "redrun": "^6.0.1",
+    "tap-lochnest": "^1.1.2",
+    "tape": "^4.9.0",
+    "tape-around": "^2.2.0",
+    "tape-promise": "^3.0.0",
+    "upath": "^1.0.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-conventional": "^6.1.3",
+    "@commitlint/lint": "^6.1.3",
+    "@commitlint/prompt-cli": "^6.1.3",
+    "chuhai": "^1.2.0",
+    "clear-require": "^2.0.0",
+    "codecov": "^3.0.0",
+    "commentizer": "^1.0.9",
+    "faker": "^4.1.0",
+    "husky": "^0.15.0-rc.9",
+    "jsdoc": "^3.5.5",
+    "lint-staged": "^7.0.0",
+    "nyc": "^11.6.0",
+    "prettier": "^1.11.1",
+    "tap-dot": "^1.0.5",
+    "tap-summary": "^4.0.0",
+    "tape-index": "^1.1.1",
+    "testdouble": "^3.5.2",
+    "xo": "^0.20.3"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "*/index.js",
+    "config.json"
+  ],
+  "scripts": {
+    "codecov:generate": "nyc report --reporter=text-lcov > coverage.lcov",
+    "codecov:upload": "codecov",
+    "commit": "commit",
+    "format": "redrun -p format:*",
+    "format:prettier": "prettier --write '**/*.{css,md}'",
+    "format:xo": "xo ./**/*.js",
+    "test": "per-env",
+    "posttest": "redrun -p codecov:report codecov:check",
+    "test:api": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(api).js' | tap-dot",
+    "test:development": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity).js' | tap-dot",
+    "test:sanity": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(sanity).js' | tap-dot",
+    "test:ci": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity|api).js' | tap-dot",
+    "posttest:ci": "redrun -p codecov:*",
+    "codecov:check": "nyc check-coverage --branches=50 --functions=50 --lines=90 --statements=50",
+    "codecov:report": "nyc report --reporter=text",
+    "prestart:production": "tape '{,!(node_modules)/**/}*.?(sanity|api).js' | tap-dot"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "xo": {
+    "globals": [
+      "$",
+      "_",
+      "co"
+    ],
+    "ignores": [
+      "**/*.spec.js",
+      "**/*.test.js",
+      "app/backends/**/*.js"
+    ],
+    "prettier": true,
+    "rules": {
+      "generator-star-spacing": "off",
+      "import/no-extraneous-dependencies": "off",
+      "import/no-unassigned-import": "off",
+      "import/no-unresolved": "off",
+      "import/order": "off",
+      "operator-linebreak": "off"
+    },
+    "semicolon": false
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{spec,sanity,api}.js": [
+        "nyc --per-file --check-coverage --branches=50 --functions=50 --lines=90 --statements=50 tape"
+      ],
+      "*.{js}": [
+        "xo",
+        "git add"
+      ],
+      "*.{css,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "CHANGELOG.md"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  "python": {
+    "dependencies": {
+      "sphinx-js": ">=2.4",
+      "Sphinx": ">=1.7.2"
+    }
+  }
 }
