@@ -35,20 +35,20 @@ module.exports = config => {
 			}
 		})
 
-	const lintStaged = {
+	const linters = {
 		'*.{js}': ['xo', 'git add'],
 		'*.{css,md}': ['prettier --write', 'git add']
 	}
 
 	if (pkg.getScript('test') !== 'undefined')
-		lintStaged['*.{spec,sanity,api}.js'] = [
+		linters['*.{spec,sanity,api}.js'] = [
 			`nyc --per-file --check-coverage ${coverageOptions.join(' ')} tape`
 		]
 
 	if (pkg.getScript('docco') !== 'undefined')
-		lintStaged['*.{js}'] = lintStaged['*.{js}'].shift('commentizer')
+		linters['*.{js}'] = linters['*.{js}'].shift('commentizer')
 
-	pkg.set('lint-staged', lintStaged).save()
+	pkg.set('lint-staged', {linters, ignore: ['CHANGELOG.md']}).save()
 
 	// Install
 	install(devPackages, {dev: true})
