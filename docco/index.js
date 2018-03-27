@@ -7,6 +7,11 @@ const path = require('upath')
 module.exports = config => {
 	const devDependencies = ['commentizer', 'nopy', 'jsdoc']
 
+	// Install
+	install(devDependencies, {
+		dev: true
+	})
+
 	// Package.json
 	const pkg = packageJson()
 		.setScript('docco', 'commentizer ./app/**/*.js !./app/**/*.*.js')
@@ -22,7 +27,7 @@ module.exports = config => {
 		})
 		.save()
 
-	// Templates
+	// Template/s
 	const doccoDir = 'docs'
 	const dirs = ['_build', '_static', '_templates']
 	dirs.map(dir =>
@@ -57,11 +62,6 @@ module.exports = config => {
 	template(doccoDir + '/Makefile', path.join(templateDir, '/Makefile'))
 		.apply(configValues)
 		.save()
-
-	// Install
-	install(devDependencies, {
-		dev: true
-	})
 
 	// Install PIP Libraries
 	ora.start('Installing PIP Libraries')

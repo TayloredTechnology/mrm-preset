@@ -1,7 +1,7 @@
 const fs = require('fs')
 const {lines} = require('mrm-core')
 
-function task() {
+module.exports = () => {
 	const remove = ['node_modules']
 	const add = [
 		'*.log',
@@ -13,7 +13,8 @@ function task() {
 		'.vscode/',
 		'Thumbs.db',
 		'coverage.lcov',
-		'node_modules/'
+		'node_modules/',
+		'python_modules/'
 	]
 
 	// If project uses npm, ignore yarn.lock
@@ -33,7 +34,11 @@ function task() {
 		.remove(remove)
 		.add(add)
 		.save()
+
+	// .ignore
+	lines('.ignore')
+		.add(['node_modules/', '.git/', 'package-lock.json', 'python_modules'])
+		.save()
 }
 
-task.description = 'Adds .gitignore'
-module.exports = task
+module.exports.description = 'Adds ignorefiles'
