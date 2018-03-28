@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/TayloredTechnology/mrm-preset/compare/v0.3.0...v0.3.1) (2018-03-28)
+
+
+### Bug Fixes
+
+* cleaner template generation, skips existing docco files ([0522f1c](https://github.com/TayloredTechnology/mrm-preset/commit/0522f1c))
+* husky required a different install process due to cli integration ([15f7d4f](https://github.com/TayloredTechnology/mrm-preset/commit/15f7d4f))
+* **docco:** add FIXME trigger to CONTRIBUTING.md for url stability ([db0497c](https://github.com/TayloredTechnology/mrm-preset/commit/db0497c))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/TayloredTechnology/mrm-preset/compare/v0.3.0-rc.0...v0.3.0) (2018-03-28)
 

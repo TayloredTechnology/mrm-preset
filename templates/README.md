@@ -4,7 +4,7 @@
 
 ## Deployment
 
-Quickstart overview of getting ${project} deployed. For full deployment and management information see the docs @ ${docsWebsite}
+Quickstart overview of getting ${project} deployed. For full deployment and management information see the docs @ DOCCOWEBSITE
 
 ### Essentials
 
