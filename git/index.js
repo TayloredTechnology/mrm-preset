@@ -1,4 +1,5 @@
 const {packageJson, install} = require('mrm-core')
+const huskyInstaller = require('npm-install-package')
 
 module.exports = config => {
 	const {coverage} = config
@@ -52,7 +53,9 @@ module.exports = config => {
 
 	// Install
 	install(devPackages, {dev: true})
-	install('husky', 'next', {dev: true})
+	huskyInstaller('husky@next', {save: true, cache: true}, err => {
+		if (err) throw err
+	})
 }
 
 module.exports.description = 'Enable Commit Guards & Commit Linting'

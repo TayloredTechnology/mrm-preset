@@ -27,11 +27,13 @@
     "fastest-validator": "^0.6.5",
     "finepack": "^2.7.0",
     "git-label": "^4.1.1",
+    "git-username": "^1.0.0",
     "is-installed": "^2.0.1",
     "mkdirp": "^0.5.1",
     "mrm-core": "^3.1.0",
     "mrm-task-editorconfig": "^1.0.3",
     "mrm-task-prettier": "^1.2.2",
+    "npm-install-package": "^2.1.0",
     "ora": "^2.0.0",
     "per-env": "^1.0.2",
     "redrun": "^6.0.1",
@@ -39,7 +41,8 @@
     "tape": "^4.9.0",
     "tape-around": "^2.2.0",
     "tape-promise": "^3.0.0",
-    "upath": "^1.0.4"
+    "upath": "^1.0.4",
+    "user-meta": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^6.1.3",

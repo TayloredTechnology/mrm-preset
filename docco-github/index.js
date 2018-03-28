@@ -20,7 +20,7 @@ module.exports = config => {
 		})
 		.values()
 
-	const templateDir = path.join(path.normalize(__dirname), '../templates/docco')
+	const templateDir = path.join(path.normalize(__dirname), '../templates')
 
 	template(configValues.readmeFile, path.join(templateDir, '/README.md'))
 		.apply(configValues)
