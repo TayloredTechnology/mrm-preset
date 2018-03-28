@@ -12,7 +12,7 @@ ${project} being open source needs help and assistance to stay current and relev
 
 ## Non-Contributions
 
-Please avoid using the issue tracker for support questions. It overcomplicates the tracker makes it harder for the community to understand what should be worked on next or where they can contributed to easily. Questions raised in the issues register will be automatically closed as all support questions should be engaged on [Zulip](https://)
+Please avoid using the issue tracker for support questions. It overcomplicates the tracker makes it harder for the community to understand what should be worked on next or where they can contributed to easily. Questions raised in the issues register will be automatically closed as all support and general questions should be engaged on [Zulip Chat: TayloredTechnology#${project}](https://tayloredtechnology.zulipchat.com/#narrow/stream/FIXME)
 
 ## First Time Contributors
 
