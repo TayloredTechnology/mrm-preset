@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/TayloredTechnology/mrm-preset/compare/v0.3.0-rc.0...v0.3.0) (2018-03-28)
+
+
+### Bug Fixes
+
+* **labels:** purge default GitHub labels ([67e7d29](https://github.com/TayloredTechnology/mrm-preset/commit/67e7d29))
+
+
+
 <a name="0.3.0-rc.0"></a>
 # [0.3.0-rc.0](https://github.com/TayloredTechnology/mrm-preset/compare/v0.2.1...v0.3.0-rc.0) (2018-03-28)
 

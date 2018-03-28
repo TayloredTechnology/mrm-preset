@@ -2,7 +2,7 @@
   "name": "mrm-preset-tayloredtechnology",
   "description": "CodeMods approach to config management for TayloredTechnology projects",
   "homepage": "https://github.com/TayloredTechnology/mrm-preset#readme",
-  "version": "0.3.0-rc.0",
+  "version": "0.3.0",
   "main": "config.json",
   "author": {
     "name": "Taylored Technology",
