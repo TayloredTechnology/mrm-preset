@@ -20,26 +20,20 @@ module.exports = config => {
 		})
 		.values()
 
-	const templateDir = path.join(path.normalize(__dirname), '../templates')
+	const templateDir = path.join(path.normalize(__dirname), '../templates/')
 
-	template(configValues.readmeFile, path.join(templateDir, '/README.md'))
-		.apply(configValues)
-		.save()
-	template('CONDUCT.md', path.join(templateDir, '/CONDUCT.md'))
-		.apply(configValues)
-		.save()
-	template('issue_template.md', path.join(templateDir, '/issue_template.md'))
-		.apply(configValues)
-		.save()
-	template(
+	const templateFiles = [
+		'README.md',
+		'CONDUCT.md',
+		'issue_template.md',
 		'pull_request_template.md',
-		path.join(templateDir, '/pull_request_template.md')
-	)
-		.apply(configValues)
-		.save()
-	template('CONTRIBUTING.md', path.join(templateDir, '/CONTRIBUTING.md'))
-		.apply(configValues)
-		.save()
+		'CONTRIBUTING.md'
+	]
+
+	templateFiles.map(item => {
+		const itemTemplate = template(item, path.join(templateDir, item))
+		if (!itemTemplate.exists()) itemTemplate.apply(configValues).save()
+	})
 }
 
-module.description = 'Default Markdown files'
+module.description = 'Default Markdown files only creates if not present'

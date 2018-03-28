@@ -23,11 +23,6 @@ module.exports = () => {
 		{name: 'wontfix', color: ''}
 	]
 
-	gitLabel
-		.remove(labelConfig, labelPurge)
-		.then(console.log)
-		.catch(console.log)
-
 	const labelData = [
 		{name: 'Status: Abandoned', color: '#000000'},
 		{name: 'Status: Accepted', color: '#009800'},
@@ -46,6 +41,12 @@ module.exports = () => {
 		{name: 'ʕノ•ᴥ•ʔノ ︵ ┻━┻', color: '#003366'}
 	]
 	const labels = json('git-labels.json', {labelData})
+
+	if (!labels.exists())
+		gitLabel
+			.remove(labelConfig, labelPurge)
+			.then(console.log)
+			.catch(console.log)
 
 	labels.merge(labelData).save()
 
