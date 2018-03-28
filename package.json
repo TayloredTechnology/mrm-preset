@@ -1,7 +1,6 @@
 {
 	"name": "mrm-preset-tayloredtechnology",
-	"description":
-		"CodeMods approach to config management for TayloredTechnology projects",
+	"description": "CodeMods approach to config management for TayloredTechnology projects",
 	"homepage": "https://github.com/TayloredTechnology/mrm-preset#readme",
 	"version": "0.2.1",
 	"main": "config.json",
@@ -17,12 +16,17 @@
 	"bugs": {
 		"url": "https://github.com/TayloredTechnology/mrm-preset/issues"
 	},
-	"keywords": ["mrm", "mrm-preset", "mrm-task"],
+	"keywords": [
+		"mrm",
+		"mrm-preset",
+		"mrm-task"
+	],
 	"dependencies": {
 		"editorconfig-to-prettier": "0.0.6",
 		"execa": "^0.10.0",
 		"fastest-validator": "^0.6.5",
 		"finepack": "^2.7.0",
+		"git-label": "^4.1.1",
 		"is-installed": "^2.0.1",
 		"mkdirp": "^0.5.1",
 		"mrm-core": "^3.1.0",
@@ -61,7 +65,10 @@
 	"engines": {
 		"node": ">=6"
 	},
-	"files": ["*/index.js", "config.json"],
+	"files": [
+		"*/index.js",
+		"config.json"
+	],
 	"scripts": {
 		"codecov:generate": "nyc report --reporter=text-lcov > coverage.lcov",
 		"codecov:upload": "codecov",
@@ -71,28 +78,32 @@
 		"format:xo": "xo ./**/*.js",
 		"test": "per-env",
 		"posttest": "redrun -p codecov:report codecov:check",
-		"test:api":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(api).js' | tap-dot",
-		"test:development":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity).js' | tap-dot",
-		"test:sanity":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(sanity).js' | tap-dot",
-		"test:ci":
-			"nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity|api).js' | tap-dot",
+		"test:api": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(api).js' | tap-dot",
+		"test:development": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity).js' | tap-dot",
+		"test:sanity": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(sanity).js' | tap-dot",
+		"test:ci": "nyc --cache --per-file --silent tape '{,!(node_modules)/**/}*.?(spec|sanity|api).js' | tap-dot",
 		"posttest:ci": "redrun -p codecov:*",
-		"codecov:check":
-			"nyc check-coverage --branches=50 --functions=50 --lines=90 --statements=50",
+		"codecov:check": "nyc check-coverage --branches=50 --functions=50 --lines=90 --statements=50",
 		"codecov:report": "nyc report --reporter=text",
-		"prestart:production":
-			"tape '{,!(node_modules)/**/}*.?(sanity|api).js' | tap-dot"
+		"prestart:production": "tape '{,!(node_modules)/**/}*.?(sanity|api).js' | tap-dot"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"commitlint": {
-		"extends": ["@commitlint/config-conventional"]
+		"extends": [
+			"@commitlint/config-conventional"
+		]
 	},
 	"xo": {
-		"globals": ["$", "_", "co"],
-		"ignores": ["**/*.spec.js", "**/*.test.js", "app/backends/**/*.js"],
+		"globals": [
+			"$",
+			"_",
+			"co"
+		],
+		"ignores": [
+			"**/*.spec.js",
+			"**/*.test.js",
+			"app/backends/**/*.js"
+		],
 		"prettier": true,
 		"rules": {
 			"generator-star-spacing": "off",
@@ -109,10 +120,18 @@
 			"*.{spec,sanity,api}.js": [
 				"nyc --per-file --check-coverage --branches=50 --functions=50 --lines=90 --statements=50 tape"
 			],
-			"*.{js}": ["xo", "git add"],
-			"*.{css,md}": ["prettier --write", "git add"]
+			"*.{js}": [
+				"xo",
+				"git add"
+			],
+			"*.{css,md}": [
+				"prettier --write",
+				"git add"
+			]
 		},
-		"ignore": ["CHANGELOG.md"]
+		"ignore": [
+			"CHANGELOG.md"
+		]
 	},
 	"husky": {
 		"hooks": {
