@@ -24,7 +24,7 @@ module.exports = config => {
 		pkg.set(
 			'xo.ignores',
 			concatAndDeDuplicate(
-				pkg.get('xo.ignores', ['**/*.spec.js', '**/*.test.js']),
+				pkg.get('xo.ignores', ['python_modules/']),
 				configValues.xoIgnores
 			)
 		)

@@ -1,3 +1,5 @@
+/* eslint array-callback-return: 0 */
+
 const {json, packageJson} = require('mrm-core')
 const gitLabel = require('git-label')
 
@@ -50,7 +52,7 @@ module.exports = () => {
 
 	labels.merge(labelData).save()
 
-	let gitLabelData = Object.keys(labels.get()).map(k => {
+	const gitLabelData = Object.keys(labels.get()).map(k => {
 		if (k !== 'default') return labels.get()[k]
 	})
 

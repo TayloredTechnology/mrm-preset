@@ -40,7 +40,7 @@ module.exports = config => {
 			version: pkg.get('version'),
 			versionShort: pkg
 				.get('version')
-				.match(/^.*[0-9]\.[0-9]+?/)[0]
+				.match(/^.*\d\.\d+?/)[0]
 				.split('.')
 				.slice(0, 2)
 				.join('.'),

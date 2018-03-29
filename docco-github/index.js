@@ -1,4 +1,4 @@
-const {template, packageJson, install} = require('mrm-core')
+const {template, packageJson} = require('mrm-core')
 const path = require('upath')
 
 module.exports = config => {
@@ -12,7 +12,7 @@ module.exports = config => {
 			version: pkg.get('version'),
 			versionShort: pkg
 				.get('version')
-				.match(/^.*[0-9]\.[0-9]+?/)[0]
+				.match(/^.*\d\.\d+?/)[0]
 				.split('.')
 				.slice(0, 2)
 				.join('.'),
@@ -32,7 +32,15 @@ module.exports = config => {
 
 	templateFiles.map(item => {
 		const itemTemplate = template(item, path.join(templateDir, item))
-		if (!itemTemplate.exists()) itemTemplate.apply(configValues).save()
+		if (!itemTemplate.exists()) {
+			itemTemplate.apply(configValues).save()
+
+			if (item.includes('CONTRIBUTING'))
+				console.log(
+					'Manual Step: replace FIXME with the ZulipChat ID in CONTRIBUTING.md'
+				)
+		}
+		return true
 	})
 }
 

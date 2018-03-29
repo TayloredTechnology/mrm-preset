@@ -1,7 +1,7 @@
 const path = require('path')
 const editorConfigToPrettier = require('editorconfig-to-prettier')
 const {json, packageJson, install} = require('mrm-core')
-const {getStyleForFile, getExtsFromCommand} = require('mrm-core')
+const {getStyleForFile, getExtsFromCommand, lines} = require('mrm-core')
 
 const defaultPattern = '**/*.{css,md}'
 const defaultOverrides = [
@@ -16,15 +16,16 @@ const defaultOverrides = [
 	}
 ]
 const defaultPrettierOptions = {
-	tabWidth: 2,
-	useTabs: true,
+	bracketSpacing: false,
 	semi: false,
 	singleQuote: true,
+	tabWidth: 2,
 	trailingComma: 'none',
-	bracketSpacing: false
+	useTabs: true
 }
+const ignores = ['python_modules/']
 
-function task(config) {
+module.exports = config => {
 	const packages = ['prettier']
 
 	const {indent, prettierPattern, prettierOptions, prettierOverrides} = config
@@ -62,7 +63,7 @@ function task(config) {
 
 	// Keep custom pattern
 	let pattern = prettierPattern
-	const formatScript = pkg.getScript('format')
+	const formatScript = pkg.getScript('format:prettier')
 	if (formatScript) {
 		const exts = getExtsFromCommand(formatScript)
 		if (exts) {
@@ -76,9 +77,11 @@ function task(config) {
 		// Add pretest script
 		.save()
 
+	// Ignores
+	lines('.prettierignore', ignores).save()
+
 	// Dependencies
 	install(packages)
 }
 
-task.description = 'Adds Prettier'
-module.exports = task
+module.exports.description = 'Adds Prettier'
