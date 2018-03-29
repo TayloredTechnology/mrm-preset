@@ -12,6 +12,16 @@
 			"logs",
 			"renovate",
 			"labels",
+			"globals",
+			"finepack"
+		],
+		"sync": [
+			"editorconfig",
+			"gitignore",
+			"test",
+			"prettier",
+			"xo",
+			"renovate",
 			"finepack"
 		],
 		"meta": ["meta-docco", "docco"]
