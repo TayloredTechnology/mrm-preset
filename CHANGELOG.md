@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/TayloredTechnology/mrm-preset/compare/v0.3.1...v0.4.0) (2018-03-29)
+
+
+### Bug Fixes
+
+* **labels:** purge default GitHub labels ([3c39855](https://github.com/TayloredTechnology/mrm-preset/commit/3c39855))
+* linting & ignorefile for python modules lint ([477fa8e](https://github.com/TayloredTechnology/mrm-preset/commit/477fa8e))
+
+
+### Features
+
+* **globals:** global npm modules necessary for helping ([9bd195f](https://github.com/TayloredTechnology/mrm-preset/commit/9bd195f))
+
+
+
 <a name="0.3.1"></a>
 
 ## [0.3.1](https://github.com/TayloredTechnology/mrm-preset/compare/v0.3.0...v0.3.1) (2018-03-28)
