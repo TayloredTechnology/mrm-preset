@@ -11,7 +11,7 @@ const jsonRules = {
 	indent_style: 'space',
 	indent_size: 2
 }
-const jsonExtensions = ['json', 'yml', 'njk']
+const jsonExtensions = ['json', 'yml', 'yaml', 'njk']
 
 function task(config) {
 	const {indent} = config.defaults({indent: 'tab'}).values()

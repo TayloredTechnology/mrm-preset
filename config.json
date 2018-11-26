@@ -3,7 +3,7 @@
 		"init": [
 			"package",
 			"editorconfig",
-			"gitignore",
+			"ignore",
 			"test",
 			"docco-github",
 			"git",
@@ -15,9 +15,20 @@
 			"globals",
 			"finepack"
 		],
+		"init-docco": [
+			"package",
+			"editorconfig",
+			"ignore",
+			"docco-github",
+			"git",
+			"prettier",
+			"renovate",
+			"labels",
+			"finepack"
+		],
 		"sync": [
 			"editorconfig",
-			"gitignore",
+			"ignore",
 			"test",
 			"prettier",
 			"xo",

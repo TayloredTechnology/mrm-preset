@@ -8,7 +8,18 @@ module.exports = () => {
 		'@tayloredtechnology/oneflow',
 		'finepack',
 		'authenticator',
-		'nyc'
+		'nyc',
+		'analyze-module-size',
+		'authenticator-cli',
+		'fastify-cli',
+		'faucet',
+		'knex-migrate',
+		'meta',
+		'npm-check',
+		'onchange',
+		'pnpm',
+		'quasar-cli',
+		'run-test'
 	]
 
 	const toInstall = []

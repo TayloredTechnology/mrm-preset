@@ -4,6 +4,8 @@ const {lines} = require('mrm-core')
 module.exports = () => {
 	const remove = ['node_modules']
 	const add = [
+		'.nyc_output/',
+		'coverage.lcov',
 		'*.log',
 		'*.sublime-project',
 		'*.sublime-workspace',

@@ -53,7 +53,7 @@ module.exports = config => {
 
 	// Install
 	install(devPackages, {dev: true})
-	huskyInstaller('husky@next', {save: true, cache: true}, err => {
+	huskyInstaller('husky@next', {saveDev: true, cache: true}, err => {
 		if (err) throw err
 	})
 }

@@ -19,7 +19,6 @@ module.exports = config => {
 		'is-installed',
 		'tap-lochnest',
 		'tape',
-		'tape-around',
 		'tape-promise',
 		'per-env',
 		'redrun'
