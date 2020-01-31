@@ -25,7 +25,7 @@
     "editorconfig-to-prettier": "0.0.6",
     "execa": "^0.10.0",
     "fastest-validator": "^0.6.5",
-    "finepack": "^2.7.0",
+    "finepack": "^2.10.1",
     "get-installed-path": "^4.0.8",
     "git-label": "^4.1.1",
     "git-username": "^1.0.0",
